@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Responsive Portfolio Website",
   "main": "index.js",
+  "homepage": "https://Lazzaro101.github.io/Web-Portfolio",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Andrew Ellis-Moseley",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0"
   }
 }
