@@ -14,11 +14,15 @@
   .menu-btn.close {
     transform: rotate(180deg); }
     .menu-btn.close .btn-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px); }
+      transform: rotate(45deg) translate(5px, 5px);
+      background: #00cfba;
+      transition: all 0.5s ease-out; }
     .menu-btn.close .btn-line:nth-child(2) {
       opacity: 0; }
     .menu-btn.close .btn-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px); }
+      transform: rotate(-45deg) translate(7px, -6px);
+      background: #00cfba;
+      transition: all 0.5s ease-out; }
 
 .menu {
   position: fixed;
@@ -63,7 +67,7 @@
     transition: all 0.5s ease-out; }
     .menu .nav-item.show {
       transform: translate3d(0, 0, 0); }
-    .menu .nav-item.current > a {
+    .menu .nav-item.active > a {
       color: #00cfba; }
   .menu .nav-link {
     display: inline-block;
