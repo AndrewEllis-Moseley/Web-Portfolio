@@ -2,9 +2,15 @@ $portrait-small-image: url(../img/portrait_small.jpg);
 
 // widescreen
 @include mediaXl {
+  .projects {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 //desktop and laptop
 @include mediaLg {
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 //tablets
 @include mediaMd {
@@ -57,10 +63,18 @@ $portrait-small-image: url(../img/portrait_small.jpg);
     grid-template-areas: "bioportrait" "bio" "job1" "job2" "job3";
     grid-template-columns: 1fr;
   }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 //mobile
 @include mediaSm {
   main#home h1 {
     margin-top: 10vh;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
   }
 }
