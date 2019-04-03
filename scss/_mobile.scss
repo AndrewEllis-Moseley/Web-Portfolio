@@ -1,18 +1,18 @@
-$portrait-small-image: url(../img/portrait_small.jpg);
-
-// widescreen
+// Widescreens
 @include mediaXl {
-  .projects {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-//desktop and laptop
-@include mediaLg {
   .projects {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-//tablets
+
+// Desktops & Laptops
+@include mediaLg {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Tablets & Small Laptops
 @include mediaMd {
   main {
     align-items: center;
@@ -23,6 +23,7 @@ $portrait-small-image: url(../img/portrait_small.jpg);
       margin-bottom: 1rem;
     }
   }
+
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -38,10 +39,6 @@ $portrait-small-image: url(../img/portrait_small.jpg);
     height: 75vh;
     transform: translate3d(-100%, 0, 0);
     font-size: 24px;
-
-    &.show {
-      transform: translate3d(0, 0, 0);
-    }
   }
 
   .menu-branding {
@@ -49,18 +46,20 @@ $portrait-small-image: url(../img/portrait_small.jpg);
     transform: translate3d(100%, 0, 0);
 
     .portrait {
-      background: $portrait-small-image;
+      background: url("../img/portrait_small.jpg");
       width: 150px;
       height: 150px;
-    }
-
-    &.show {
-      transform: translate3d(0, 0, 0);
     }
   }
 
   .about-info {
-    grid-template-areas: "bioportrait" "bio" "job1" "job2" "job3";
+    grid-template-areas:
+      "bioportrait"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+
     grid-template-columns: 1fr;
   }
 
@@ -68,10 +67,19 @@ $portrait-small-image: url(../img/portrait_small.jpg);
     grid-template-columns: repeat(2, 1fr);
   }
 }
-//mobile
+
+// Smartphones
 @include mediaSm {
-  main#home h1 {
-    margin-top: 10vh;
+  main {
+    padding: 2rem;
+    #home h1 {
+      margin-top: 10vh;
+    }
+
+    .lg-heading {
+      margin-top: 1rem;
+      font-size: 5rem;
+    }
   }
 
   .projects {

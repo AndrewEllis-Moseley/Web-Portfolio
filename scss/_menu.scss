@@ -1,8 +1,4 @@
-// Menu
-$primary-color: #444;
-$secondary-color: #eece1a;
-$portrait-background: url("../img/portrait_2.jpg");
-
+// Menu Button
 .menu-btn {
   position: absolute;
   z-index: 3;
@@ -19,31 +15,30 @@ $portrait-background: url("../img/portrait_2.jpg");
     @include easeOut;
   }
 
+  // Rotate Into X With Menu Lines
   &.close {
     transform: rotate(180deg);
 
     .btn-line {
-      // line 1 rotate
+      // Line 1 - Rotate
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
-        background: $secondary-color;
       }
 
-      // line 2 hide
+      // Line 2 - Hide
       &:nth-child(2) {
         opacity: 0;
       }
 
-      // line 3 rotate
+      // Line 3 - Rotate
       &:nth-child(3) {
-        transform: rotate(-45deg) translate(6.5px, -6.5px);
-        background: $secondary-color;
+        transform: rotate(-45deg) translate(7px, -6px);
       }
     }
   }
 }
 
-// menu overlay
+// Menu Overlay
 .menu {
   position: fixed;
   top: 0;
@@ -70,31 +65,32 @@ $portrait-background: url("../img/portrait_2.jpg");
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($color: $primary-color, $amount: 5);
+    background: darken($primary-color, 5);
     list-style: none;
-    // comes in from top
     transform: translate3d(0, -100%, 0);
     @include easeOut;
 
     &.show {
+      // Slide in from top
       transform: translate3d(0, 0, 0);
     }
   }
 
+  // Branding Side
   &-branding {
     background: $primary-color;
-    @include easeOut;
-    // comes in from bottom
     transform: translate3d(0, 100%, 0);
+    @include easeOut;
 
     &.show {
+      // Slide in from bottom
       transform: translate3d(0, 0, 0);
     }
 
     .portrait {
       width: 250px;
       height: 250px;
-      background: $portrait-background;
+      background: url("../img/portrait.jpg");
       border-radius: 50%;
       border: solid 3px $secondary-color;
     }
@@ -105,10 +101,11 @@ $portrait-background: url("../img/portrait_2.jpg");
     @include easeOut;
 
     &.show {
+      // Slide in from right
       transform: translate3d(0, 0, 0);
     }
 
-    &.active > a {
+    &.current > a {
       color: $secondary-color;
     }
   }
@@ -130,9 +127,9 @@ $portrait-background: url("../img/portrait_2.jpg");
   }
 }
 
-// delay each nav item slide using sass for each loop
-@for $i from 1 through 4 {
-  .nav-item:nth-child(#{$i}) {
-    transition-delay: $i * 0.2s;
+// Delay each nav item slide by 0.1s
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
   }
 }

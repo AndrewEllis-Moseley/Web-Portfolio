@@ -1,38 +1,6 @@
 @import "config";
 @import "menu";
 
-$primary-color: #444;
-$secondary-color: #eece1a;
-$show-home-image: true;
-$home-image: url(../img/background.jpg);
-$portrait-background: url("../img/portrait_2.jpg");
-$background-opacity: 0.9;
-
-@mixin easeOut {
-  transition: all 0.5s ease-out;
-}
-
-@mixin background {
-  @if $show-home-image {
-    &#bg-img {
-      background: $home-image;
-      background-attachment: fixed;
-      background-size: cover;
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: rgba($primary-color, $background-opacity);
-      }
-    }
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -61,12 +29,12 @@ h3 {
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(lighten($color: $primary-color, $amount: 2), 0.5);
+    background: rgba(lighten($primary-color, 2), 0.5);
   }
 }
 
 a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -82,6 +50,7 @@ header {
 
 main {
   padding: 4rem;
+  // height: 100%;
   min-height: calc(100vh - 60px);
 
   .icons {
@@ -89,10 +58,10 @@ main {
 
     a {
       padding: 0.4rem;
+      @include easeOut;
 
       &:hover {
         color: $secondary-color;
-        @include easeOut;
       }
     }
   }
@@ -108,7 +77,9 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: "bioportrait bio bio" "job1 job2 job3";
+  grid-template-areas:
+    "bioportrait bio bio"
+    "job1 job2 job3";
   grid-template-columns: repeat(3, 1fr);
 
   .bio-portrait {
@@ -136,14 +107,13 @@ main {
   }
 
   .job {
-    background: lighten($color: $primary-color, $amount: 5);
+    background: lighten($primary-color, 5);
     padding: 0.5rem;
     border-bottom: $secondary-color 5px solid;
   }
 }
 
-// work section
-
+// Work/Projects
 .projects {
   display: grid;
   grid-gap: 0.7rem;
@@ -161,13 +131,38 @@ main {
   }
 }
 
-// button styling
+// Contact Page
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+// Button Styles
 .btn {
   display: block;
   padding: 0.5rem 1rem;
   border: 0;
   margin-bottom: 0.3rem;
-
   &:hover {
     background: $secondary-color;
     color: set-text-color($secondary-color);
@@ -176,20 +171,20 @@ main {
 
 .btn-dark {
   @extend .btn;
-  background: darken($color: $primary-color, $amount: 50);
+  background: darken($primary-color, 50);
   color: #fff;
 }
 
 .btn-light {
   @extend .btn;
-  background: lighten($color: $primary-color, $amount: 50);
+  background: lighten($primary-color, 50);
   color: #333;
 }
 
 #main-footer {
   text-align: center;
   padding: 1rem;
-  background: darken($color: $primary-color, $amount: 10);
+  background: darken($primary-color, 10);
   color: set-text-color($primary-color);
   height: 60px;
 }
