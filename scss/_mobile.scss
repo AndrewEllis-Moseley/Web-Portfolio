@@ -85,4 +85,12 @@
   .projects {
     grid-template-columns: 1fr;
   }
+
+  .job-1,
+  .job-2,
+  .job-3 {
+    span {
+      display: block;
+    }
+  }
 }
